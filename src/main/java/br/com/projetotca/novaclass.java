@@ -8,6 +8,13 @@ public class novaclass {
         asf
                 asf
                 asf
+                        dsffds
+                        df
+                                dsfds
+                                dfsd
+                                        d
+                                        dsfdsfds
+                                                fsd
                         as
     }
 }
