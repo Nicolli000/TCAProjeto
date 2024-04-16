@@ -42,15 +42,9 @@ public class ClienteDAO {
         try {
             conn = ConnectionFactory.createConnectionToMySQL();
             pstm = conn.prepareStatement(sql);
-            pstm.setString(1, dadosDaConta.getNome()); // Define o valor do parâmetro na consulta preparada
+            pstm.setString(1, dadosDaConta.getNome());
             pstm.setString(2,dadosDaConta.getSenha());
             rs = pstm.executeQuery(); // Executa a consulta
-
-//            if (rs.next()) {
-//                // Se houver resultados, cria uma instância de ContaCliente e popula com os dados do ResultSet
-//                dadosCliente.setNome(rs.getString("nome"));
-//                dadosCliente.setSenha(rs.getString("senha"));}
-
         } catch (Exception e) {
             throw new RuntimeException(e);
         } finally {

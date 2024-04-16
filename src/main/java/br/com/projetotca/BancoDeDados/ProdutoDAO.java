@@ -13,7 +13,6 @@ public class ProdutoDAO {
 
     public static List<Produto> listagem(){
         List<Produto>produtos = new ArrayList<>();
-
         Connection conn;
         PreparedStatement pstm = null;
         ResultSet rs = null;
@@ -28,6 +27,7 @@ public class ProdutoDAO {
                 Produto produto = new Produto(); {
                     produto.setId(rs.getString(1));
                     produto.setNomeProduto(rs.getString(2));
+                    produto.setPrecoPorUnidade((int) rs.getDouble(3));
 
                     produtos.add(produto);
                 }

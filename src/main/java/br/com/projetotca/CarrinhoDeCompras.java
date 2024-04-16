@@ -51,18 +51,18 @@ public class CarrinhoDeCompras {
 
     static void loginCliente() {
         System.out.println("Nome do usuario:  ");
-        String nome = input.nextLine();
+            String nome = input.nextLine();
         System.out.println("Insira sua senha: ");
-        String senha = input.nextLine();
+            String senha = input.nextLine();
         System.out.println("Usuario " + nome + "iniciado com sucesso!");
         ContaCliente dadosDaConta = new ContaCliente(nome, senha);
-
         contaService.verificarConta(dadosDaConta);
     }
 
     static void listarProdutos() {
         System.out.println("---------------------Produtos disponíveis---------------------\n");   // então mostrar lista
         listagem().forEach(System.out::println);
+        System.out.println("--------------------------------------------------------------\n");
     }
 
     static void iniciarCompra() {
@@ -71,7 +71,7 @@ public class CarrinhoDeCompras {
         double totalCompra = 0.0; // Variável para armazenar o total da compra
             System.out.println("---------------------Produtos disponíveis---------------------\n");
                listagem().forEach(System.out::println);
-            System.out.println("\n");
+            System.out.println("--------------------------------------------------------------\n");
 
         System.out.println("--------------Iniciando sua compra---------------\n");
         System.out.println("Digite o nome do produto que deseja comprar: ");
@@ -83,16 +83,15 @@ public class CarrinhoDeCompras {
         for (Produto p : produtos) {
             if (p.getNomeProduto().equals(nomeProduto)) {
                 double totalProduto = p.getPrecoPorUnidade() * quantidade; // Calcula o total do produto
-                totalCompra += totalProduto; // Adiciona ao total da compra
-                if (carrinho.containsKey(p)) {//containsKey -> método serve para verificar se um determinado mapa contém uma chave específica.
-                    quantidade += Integer.parseInt(carrinho.get(p));
+//                if (carrinho.containsKey(p)) {//containsKey -> método serve para verificar se um determinado mapa contém uma chave específica.
+//                    quantidade += Integer.parseInt(carrinho.get(p));
                 }
-                carrinho.put(p, String.valueOf(quantidade));
-                System.out.println(p.getNomeProduto() + " adicionado ao carrinho.");
-                isPresent = true;
+//                carrinho.put(p, String.valueOf(quantidade));
+//                System.out.println(p.getNomeProduto() + " adicionado ao carrinho.");
+//                isPresent = true;
                 break;
             }
-        }
+
         if (!isPresent) {
             System.out.println("Produto não encontrado.");
         }
