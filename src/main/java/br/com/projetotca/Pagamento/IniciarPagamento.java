@@ -46,7 +46,7 @@ public class IniciarPagamento {
                 --   2 - Débito                               --
                 --   3 - Pix                                  --
                 --   4 - Voltar ao menu principal.            --
-                ----------------------**------------------------
+                ---------------------***------------------------
                 """);
         return Integer.parseInt(input.nextLine());
     }

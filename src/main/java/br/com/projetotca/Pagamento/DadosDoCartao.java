@@ -6,34 +6,37 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class DadosDoCartao {
+    private String nomeTitular;
+    private String numeroCartao;
+    private String codigoSeguranca;
+    private String dataValidade;
     private Scanner input = new Scanner(System.in);
 
     boolean perguntarDados() {
-        System.out.println("Nome do titular: ");
-        String nomeTitular = input.nextLine();
-        String numeroCartao;
-        String codigoSeguranca;
-        String dataValidade;
-
         do {
+            System.out.println("Nome do titular: ");
+            nomeTitular = input.nextLine();
+
             System.out.println("Número do cartão: ");
             numeroCartao = input.nextLine();
-            System.out.println("Código de segurança: ");
-            codigoSeguranca = input.nextLine();
-            System.out.println("Data de validade (MM/yy): ");
-            dataValidade = input.nextLine();
-
             if (numeroCartao.length() != 16) {
                 System.out.println("Número do cartão inválido. O número do cartão deve conter 16 dígitos.");
+                continue; // Volta para o início do loop
             }
+
+            System.out.println("Código de segurança: ");
+            codigoSeguranca = input.nextLine();
             if (codigoSeguranca.length() != 3) {
                 System.out.println("Código de segurança inválido. O código de segurança deve conter 3 dígitos.");
+                continue;
             }
+            System.out.println("Data de validade (MM/yy): ");
+            dataValidade = input.nextLine();
             if (!validarFormatoData(dataValidade)) {
                 System.out.println("Formato de data inválido. A data de validade deve estar no formato MM/yy.");
+                continue;
             }
         } while (numeroCartao.length() != 16 || codigoSeguranca.length() != 3 || !validarFormatoData(dataValidade));
-
         return true;
     }
 
@@ -44,10 +47,23 @@ public class DadosDoCartao {
             Date date = sdf.parse(data);
             return true;
         } catch (ParseException e) {
-            return false;
+            return data.matches("\\d{2}/\\d{2}");
         }
     }
 }
+
+//*****************************************************************************************************
+//
+//            if (numeroCartao.length() != 16) {
+//                System.out.println("Número do cartão inválido. O número do cartão deve conter 16 dígitos.");
+//            }
+//            if (codigoSeguranca.length() != 3) {
+//                System.out.println("Código de segurança inválido. O código de segurança deve conter 3 dígitos.");
+//            }
+//            if (!validarFormatoData(dataValidade)) {
+//                System.out.println("Formato de data inválido. A data de validade deve estar no formato MM/yy.");
+//            }
+//*****************************************************************************************************
 //        System.out.println("Número do cartão: ");
 //        String numeroCartao = input.nextLine();
 //        System.out.println("Nome do titular: ");

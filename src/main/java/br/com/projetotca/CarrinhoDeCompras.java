@@ -51,12 +51,11 @@ public class CarrinhoDeCompras {
 
     static void loginCliente() {
         System.out.println("Nome do usuario:  ");
-        String nome = input.nextLine();
+            String nome = input.nextLine();
         System.out.println("Insira sua senha: ");
-        String senha = input.nextLine();
+            String senha = input.nextLine();
         System.out.println("Usuario " + nome + "iniciado com sucesso!");
         ContaCliente dadosDaConta = new ContaCliente(nome, senha);
-
         contaService.verificarConta(dadosDaConta);
     }
 

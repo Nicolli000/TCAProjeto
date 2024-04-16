@@ -9,12 +9,10 @@ public class FormaDePagamento {
     private static double valorPago;
     static final Scanner input = new Scanner(System.in);
     private static double valorTotal;  //valor final
-
     public FormaDePagamento(double valorTotal) {
         FormaDePagamento.valorTotal = valorTotal;
         List<String> produtos = new ArrayList<>();
     }
-
     private static void pagarComCartao(double valorTotal) {
         DadosDoCartao dadosCartao = new DadosDoCartao();
         dadosCartao.perguntarDados();
@@ -28,7 +26,6 @@ public class FormaDePagamento {
             System.out.println("Saldo insuficiente. Tente novamente.");
         }
     }
-
         public static void pagarCredito () {
             DadosDoCartao dadosDoCartao = new DadosDoCartao();
             dadosDoCartao.perguntarDados();

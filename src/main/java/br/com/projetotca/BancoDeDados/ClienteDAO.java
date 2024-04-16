@@ -50,7 +50,6 @@ public class ClienteDAO {
 //                // Se houver resultados, cria uma instância de ContaCliente e popula com os dados do ResultSet
 //                dadosCliente.setNome(rs.getString("nome"));
 //                dadosCliente.setSenha(rs.getString("senha"));}
-
         } catch (Exception e) {
             throw new RuntimeException(e);
         } finally {

@@ -13,7 +13,6 @@ public class ProdutoDAO {
 
     public static List<Produto> listagem(){
         List<Produto>produtos = new ArrayList<>();
-
         Connection conn;
         PreparedStatement pstm = null;
         ResultSet rs = null;
