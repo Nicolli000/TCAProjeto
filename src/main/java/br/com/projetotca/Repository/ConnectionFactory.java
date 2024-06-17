@@ -1,4 +1,4 @@
-package br.com.projetotca.BancoDeDados;
+package br.com.projetotca.Repository;
 
 
 import java.sql.Connection;
