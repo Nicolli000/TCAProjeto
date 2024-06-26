@@ -14,7 +14,7 @@ public class ProdutoDAO {
     public static List<Produto> listagem() {
         List<Produto> produtos = new ArrayList<>();
 
-        Connection conn;   //Garante que Connection, PreparedStatement e ResultSet são fechados automaticamente ao final do bloco, mesmo em caso de exceção.
+        Connection conn;
         PreparedStatement pstm = null; //
         ResultSet rs = null;//
         String sql = "select * from tbproduto ";
@@ -71,10 +71,10 @@ public class ProdutoDAO {
         Produto produtoEncontrado = null;
         Connection conn = null;
         PreparedStatement pstm = null;
-        ResultSet rs = null; //É usado para armazenar o resultado da consulta SQL.
+        ResultSet rs = null; //armazena o resultado da consulta SQL.
         String sql = "SELECT * FROM tbproduto WHERE nome_produto = ?";
         try {
-            conn = ConnectionFactory.createConnectionToMySQL(); //Cria uma conexão com o banco de dados MySQL
+            conn = ConnectionFactory.createConnectionToMySQL();
             pstm = conn.prepareStatement(sql);
             pstm.setString(1, nomeProduto);
 
@@ -84,10 +84,8 @@ public class ProdutoDAO {
                 produtoEncontrado.setNomeProduto(rs.getString("nome_produto"));
                 produtoEncontrado.setPrecoPorUnidade(rs.getDouble("preco_unidade"));
                 produtoEncontrado.setGramas(rs.getDouble("gramas"));
-                // Defina outros atributos do produto, se necessário
             } else {
                 System.out.println("Produto não encontrado. Tente novamente");
-                // Retorna null se o produto não for encontrado
                 return null;
             }
         } catch (Exception e) {
@@ -141,11 +139,9 @@ public class ProdutoDAO {
     }
 
     public void atualizarProduto(Produto produto) {
-        // Query SQL para atualizar o produto com base no ID
         String sql = "UPDATE tbproduto SET nome_produto = ?, preco_unidade = ?, gramas = ? WHERE id = ?";
         try (Connection conn = ConnectionFactory.createConnectionToMySQL();
              PreparedStatement pstm = conn.prepareStatement(sql)) {
-            // Define os parâmetros da query com os novos valores do produto
             pstm.setString(1, produto.getNomeProduto());
             pstm.setDouble(2, produto.getPrecoPorUnidade());
             pstm.setDouble(3, produto.getGramas());

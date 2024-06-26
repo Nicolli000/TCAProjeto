@@ -13,7 +13,9 @@ public class PrincipalFuncionario {
     private static FuncionarioDAO funcionarioDAO;
 
     static Produto produto = new Produto();
+    
     static Scanner input = new Scanner(System.in);
+    
     public static void main(String[] args) throws Exception {
         FuncionarioService funcionarioService = new FuncionarioService();
         var opcao = exibirMenuFuncionario();                                       

@@ -18,12 +18,10 @@ public class CarrinhoDeCompras {
     Produto produto = new Produto();
     static Cliente dadosDaConta = new Cliente();
     private static Scanner input = new Scanner(System.in);
-    //  public static Map<Produto, String> carrinho; //é um mapa onde as chaves são objetos do tipo Produto e os valores associados a essas chaves são String (String).
     private static ClienteDAO contaService = new ClienteDAO();
 
 
     public static void cadastrarCliente() {
-
         System.out.println("Digite seu nome: ");
         String nome = input.nextLine();
         System.out.println("Insira seu CPF: ");
@@ -45,27 +43,25 @@ public class CarrinhoDeCompras {
         String nome = input.nextLine();
         System.out.println("Insira sua senha: ");
         String senha = input.nextLine();
-        // Criar uma instância de ContaCliente com os dados fornecidos pelo usuário
         Cliente dadosDaConta = new Cliente(nome, senha);
-        // Verificar a conta usando os dados fornecidos pelo usuário
         contaService.verificarConta(dadosDaConta);
         exibirMenuCliente();
     }
 
     public static void listarProdutos() {
-        System.out.println("════════════════════════Produtos disponíveis════════════════════════\n");   // então mostrar lista
+        System.out.println("════════════════════════Produtos disponíveis════════════════════════\n");   
         listagem().forEach(System.out::println);
         System.out.println("════════════════════════════════════════════════════════════════════\n");
     }
 
     public static void iniciarCompra() {
-        ProdutoDAO produtoDAO = new ProdutoDAO();
-        Produto produto = new Produto();
+	ProdutoDAO produtoDAO = new ProdutoDAO();
+	Produto produto = new Produto();
         double totalCompra = 0.0;
-        Scanner input = new Scanner(System.in);
+    Scanner input = new Scanner(System.in);
         System.out.println("═════════════════════════════════════════════════════════════════════════════════════\n");
         System.out.println("════════════════════════════════Produtos disponíveis════════════════════════════════\n");
-        List<Produto> produtosDisponiveis = listagem(); // Obter lista de produtos disponíveis
+    List<Produto> produtosDisponiveis = listagem();
         produtosDisponiveis.forEach(System.out::println);
         System.out.println("═════════════════════════════════════════════════════════════════════════════════════\n");
         System.out.println("════════════════════════════════Iniciando sua compra════════════════════════════════\n");
@@ -74,14 +70,13 @@ public class CarrinhoDeCompras {
             System.out.println("Digite o nome do produto que deseja comprar: ");
             String nomeProduto = input.nextLine();
             System.out.println("Digite a quantidade desejada: ");
-            int quantidade = input.nextInt();
-            input.nextLine(); // Consumir a quebra de linha pendente
-
-            produto = produtoDAO.verificarProduto(nomeProduto, quantidade);
+	            int quantidade = input.nextInt();
+            input.nextLine(); 
+	            produto = produtoDAO.verificarProduto(nomeProduto, quantidade);
             if (produto != null) {
-                double precoTotalProduto = produto.getPrecoPorUnidade() * quantidade;
+              double precoTotalProduto = produto.getPrecoPorUnidade() * quantidade;
                 totalCompra += precoTotalProduto;
-                double totalCompraFormatado = Math.round(totalCompra * 100.0) / 100.0;
+              double totalCompraFormatado = Math.round(totalCompra * 100.0) / 100.0;
                 carrinhoDeCompras.put( produto.getNomeProduto(), quantidade);
                 System.out.println("Produto " + nomeProduto + " adicionado ao carrinho. Total: R$" + totalCompraFormatado);
                 System.out.println("═════════════════════════════════════════════════════════════════════════════════════\n");
@@ -104,7 +99,7 @@ public class CarrinhoDeCompras {
         System.out.println("═════════════════════════════════════════════════════════════════════════════════════\n");
         exibirFormaPagamento();
         System.out.println("Compra finalizada com sucesso!");
-        input.close(); // Fechar o Scanner
+        input.close(); 
     }
 
     public static void recibo (){

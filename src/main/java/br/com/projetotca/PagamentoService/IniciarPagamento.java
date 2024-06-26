@@ -9,7 +9,7 @@ import static br.com.projetotca.Service.CarrinhoDeCompras.recibo;
 
 public class IniciarPagamento {
     private static Scanner input = new Scanner(System.in);
-    private static double valorTotal;  //valor final
+    private static double valorTotal;  
 
 
     public static void exibirFormaPagamento() {
@@ -32,7 +32,7 @@ public class IniciarPagamento {
                     pagarDebito(valorTotal);
                     break;
                 case 3:
-                    pagarPix(valorTotal); // Adicionei valorTotal como parâmetro, se necessário
+                    pagarPix(valorTotal);
                     break;
                 case 4:
                     exibirMenuCliente();
@@ -48,7 +48,6 @@ public class IniciarPagamento {
         try {
             DadosCartao dadosCartao = new DadosCartao();
             dadosCartao.perguntarDados();
-
             double valorPago = input.nextDouble();
             if (valorPago >= valorTotal) {
                 System.out.println("Pagamento de R$" + valorTotal + " realizado com sucesso.");
@@ -57,7 +56,7 @@ public class IniciarPagamento {
             }
         } catch (InputMismatchException e) {
             System.out.println("Valor inválido. Por favor, insira um valor numérico.");
-            pagarComCartao(valorTotal); // Tente novamente
+            pagarComCartao(valorTotal); 
         }
     }
 

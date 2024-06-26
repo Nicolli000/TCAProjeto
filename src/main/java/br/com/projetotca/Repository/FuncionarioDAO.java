@@ -45,7 +45,7 @@ public class FuncionarioDAO {
             pstm = conn.prepareStatement(sql);
             pstm.setInt(1, produto.getId());
 
-            int linhaExcluida = pstm.executeUpdate(); // Executando a atualização
+            int linhaExcluida = pstm.executeUpdate();
 
             if (linhaExcluida > 0) {
                 System.out.println("Produto excluído com sucesso!");
@@ -53,7 +53,7 @@ public class FuncionarioDAO {
                 System.out.println("ID incorreto ou produto não existe. Tente novamente.");
             }
 
-            exibirMenuCliente(); // Exibindo o menu após a operação
+            exibirMenuCliente();
         } catch (SQLException e) {
             System.err.println("Erro ao apagar o produto: " + e.getMessage());
         } finally {
@@ -72,7 +72,7 @@ public class FuncionarioDAO {
     public void verificarFuncionario(Funcionario funcionario) {
         Connection conn = null;
         PreparedStatement pstm = null;
-        String sql = "SELECT * FROM Funcionarios WHERE nome = ? AND senha = ?"; //esta consulta selecionará todas as linhas da tabela tbcliente onde o campo nome é igual ao valor fornecido e o campo senha é igual ao valor fornecido.
+        String sql = "SELECT * FROM Funcionarios WHERE nome = ? AND senha = ?"; 
         try {
             conn = ConnectionFactory.createConnectionToMySQL();
             pstm = conn.prepareStatement(sql);

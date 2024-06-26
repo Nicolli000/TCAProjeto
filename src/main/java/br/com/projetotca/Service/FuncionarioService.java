@@ -41,13 +41,11 @@ public class FuncionarioService {
                 } else if ("preco".equals(tipo)) {
                     System.out.println("Digite o novo preço do produto:");
                     Double novoPreco = Double.parseDouble(input.nextLine());
-                    produto.setPrecoPorUnidade(novoPreco); // Atualização do preço do produto
-                } else if ("gramas".equals(tipo)) {
+                    produto.setPrecoPorUnidade(novoPreco); 
                     System.out.println("Digite o novo peso do produto:");
                     Double novoPeso = Double.parseDouble(input.nextLine());
-                    produto.setGramas(novoPeso); // Atualização do peso do produto
+                    produto.setGramas(novoPeso);
                 }
-                // Chamada do método para atualizar o produto no banco de dados
                 produtoDAO.atualizarProduto(produto);
                 System.out.println("Produto atualizado com sucesso!");
             } else {

@@ -15,7 +15,7 @@ public class ClienteDAO {  //DAO -> Objeto de acesso a Dados
         String sql = "INSERT INTO tbcliente (cpf, nome, email, senha, endereco) VALUES (?, ?, ?, ?, ?)";
 
         try {
-            conn = ConnectionFactory.createConnectionToMySQL(); //cria e retorna uma conexão com o banco de dados MySQL.
+            conn = ConnectionFactory.createConnectionToMySQL();
             pstm = conn.prepareStatement(sql);
             pstm.setString(1, dadosDaConta.getCpf());
             pstm.setString(2, dadosDaConta.getNome());
@@ -32,7 +32,7 @@ public class ClienteDAO {  //DAO -> Objeto de acesso a Dados
     public void verificarConta(Cliente dadosDaConta) {
         Connection conn = null;
         PreparedStatement pstm = null;
-               String sql = "SELECT * FROM tbcliente WHERE nome = ? AND senha = ?"; //esta consulta selecionará todas as linhas da tabela tbcliente onde o campo nome é igual ao valor fornecido e o campo senha é igual ao valor fornecido.
+               String sql = "SELECT * FROM tbcliente WHERE nome = ? AND senha = ?"; 
         try {
             conn = ConnectionFactory.createConnectionToMySQL();
             pstm = conn.prepareStatement(sql);

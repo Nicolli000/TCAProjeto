@@ -16,8 +16,8 @@ public class DadosCartao {
     public void perguntarDados() {
         System.out.println("Nome do titular: ");
              nomeTitular = input.nextLine();
-        while (!nomeTitular.matches("[a-zA-Z\\s]+")) { //[a-zA-Z\\s]+: Esta expressão regular verifica se a string contém apenas letras (a-zA-Z) e espaços (\\s).
-                                                            // \\s: Representa um espaço em branco.
+        while (!nomeTitular.matches("[a-zA-Z\\s]+")) {
+            // (\\s): Representa um espaço em branco.
             System.out.println("Nome inválido. Deve conter nome e sobrenome.");
             System.out.println("Nome do titular: ");
                   nomeTitular = input.nextLine();
