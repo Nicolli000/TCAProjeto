@@ -10,13 +10,13 @@ import java.util.Scanner;
 import static br.com.projetotca.Service.CarrinhoDeCompras.listarProdutos;
 
 public class PrincipalFuncionario {
-    private static FuncionarioDAO funcionarioDAO; // Instância do FuncionarioDAO
+    private static FuncionarioDAO funcionarioDAO;
 
     static Produto produto = new Produto();
     static Scanner input = new Scanner(System.in);
     public static void main(String[] args) throws Exception {
         FuncionarioService funcionarioService = new FuncionarioService();
-        var opcao = exibirMenuFuncionario();                                          //int opcao = input.nextInt();
+        var opcao = exibirMenuFuncionario();                                       
 
         while (opcao != 7) {
             opcao = exibirMenuFuncionario();
@@ -49,9 +49,8 @@ public class PrincipalFuncionario {
     public static void opEditarProduto() {
         FuncionarioService funcionarioService = new FuncionarioService();
         ProdutoDAO produtoDAO = new ProdutoDAO();
-        var opcao = opcaoEditarProduto();                                          //int opcao = input.nextInt();
+        var opcao = opcaoEditarProduto();                                          
         while (opcao != 5) {
-        // opcao = exibirMenu();
         switch (opcao) {
             case 1:
                 funcionarioService.editarProduto(funcionarioService, produtoDAO, "nome");

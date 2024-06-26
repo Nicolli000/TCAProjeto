@@ -12,8 +12,8 @@ import static br.com.projetotca.Service.CarrinhoDeCompras.*;
 public class PrincipalCliente {
 
     static Scanner input = new Scanner(System.in);
-    private static Map<Produto, Integer> carrinho; //Para adicionar ao carrinho
-
+    private static Map<Produto, Integer> carrinho;
+    
     public static void main(String[] args) {
         carrinho = new HashMap<>();
         var opcao = exibirMenuCliente();

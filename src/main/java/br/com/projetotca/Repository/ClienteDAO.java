@@ -9,8 +9,8 @@ import static br.com.projetotca.PrincipalCliente.exibirMenuCliente;
 public class ClienteDAO {  //DAO -> Objeto de acesso a Dados
     public void salvarConta(Cliente dadosDaConta){
 
-        Connection conn= null; //representa uma conexão com o banco de dados.
-        PreparedStatement pstm = null; // representa uma declaração SQL preparada, que permite definir parâmetros de forma dinâmica
+        Connection conn= null; 
+        PreparedStatement pstm = null;
 
         String sql = "INSERT INTO tbcliente (cpf, nome, email, senha, endereco) VALUES (?, ?, ?, ?, ?)";
 
